@@ -5,8 +5,8 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "");
-    cout << "Лабораторная работа #8. GIT\n";
-    cout << "Вариант #9. Телефонные разговоры\n";
-    cout << "Автрор: Станислав Сотников\n";
+    cout << "Laboratory work #8. GIT\n";
+    cout << "Variant #9. Phone conversations\n";
+    cout << "Author: Stanislav Sotnikov\n";
     return 0;
 }
