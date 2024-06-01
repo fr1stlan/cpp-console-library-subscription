@@ -1,5 +1,5 @@
-#ifndef BOOK_SUBSCRIPTION_H
-#define BOOK_SUBSCRIPTION_H
+#ifndef PHONE_SUBSCRIPTION_H
+#define PHONE_SUBSCRIPTION_H
 
 #include "constants.h"
 
@@ -10,7 +10,7 @@ struct date
     int year;
 };
 
-struct time
+struct Time
 {
     int hour;
     int minute;
@@ -27,8 +27,8 @@ struct phone_subscription
 {
     char number[MAX_NUMBER_SIZE];
     date startDate;
-    time startTime;
-    time duration;
+    Time startTime;
+    Time duration;
     traffic callInfo;
 };
 
