@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -17,13 +18,26 @@ int main()
     try
     {
         read("data.txt", subscriptions, size);
+        cout << "***** Phone call *****\n\n";
         for (int i = 0; i < size; i++)
         {
+            cout << "Number...............";
             cout << subscriptions[i]->number << '\n';
-            cout << subscriptions[i]->startDate << '\n';
-            cout << subscriptions[i]->startTime << '\n';
-            cout << subscriptions[i]->duration << ' ';
-            cout << subscriptions[i]->callInfo.name << ' ';
+            cout << "Date.................";
+            cout << setw(2) << setfill('0') << subscriptions[i]->startDate.day << '.';
+            cout << setw(2) << setfill('0') << subscriptions[i]->startDate.month << '.';
+            cout << setw(4) << setfill('0') << subscriptions[i]->startDate.year << '\n';
+            cout << "Time.................";
+            cout << setw(2) << setfill('0') << subscriptions[i]->startTime.hour << ':';
+            cout << setw(2) << setfill('0') << subscriptions[i]->startTime.minute << ':';
+            cout << setw(2) << setfill('0') << subscriptions[i]->startTime.second << '\n';
+            cout << "Duration.............";
+            cout << setw(2) << setfill('0') << subscriptions[i]->duration.hour << ':';
+            cout << setw(2) << setfill('0') << subscriptions[i]->duration.minute << ':';
+            cout << setw(2) << setfill('0') << subscriptions[i]->duration.second << '\n';
+            cout << "Tariff...............";
+            cout << subscriptions[i]->callInfo.name << '\n';
+            cout << "Cost for a minute....";
             cout << subscriptions[i]->callInfo.cost << '\n';
             cout << '\n';
         }
