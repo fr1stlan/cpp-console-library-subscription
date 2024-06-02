@@ -20,12 +20,12 @@ struct Time
 struct traffic
 {
     char name[MAX_NAME_SIZE];
-    int cost;
+    double cost;
 };
 
 struct phone_subscription
 {
-    char number[MAX_NUMBER_SIZE];
+    int number;
     date startDate;
     Time startTime;
     Time duration;

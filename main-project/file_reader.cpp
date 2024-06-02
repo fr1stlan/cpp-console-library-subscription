@@ -1,8 +1,11 @@
 #include "file_reader.h"
 #include "constants.h"
 
-#include <fstream>
 #include <cstring>
+#include <fstream>
+
+
+//здесь есть проблема с 15й строкой. atoi сразу выбивает из программы, stoi относит к библиотеке.
 
 date convertDate(char* str)
 {
@@ -40,16 +43,17 @@ void read(const char* file_name, phone_subscription* array[], int& size)
         while (!file.eof())
         {
             phone_subscription* item = new phone_subscription;
-            file.getline(item->number, MAX_NUMBER_SIZE);
+            file >> tmp_buffer;
+            item->number = atoi(tmp_buffer);
             file >> tmp_buffer;
             item->startDate = convertDate(tmp_buffer);
             file >> tmp_buffer;
             item->startTime = convertTime(tmp_buffer);
             file >> tmp_buffer;
             item->duration = convertTime(tmp_buffer);
-            file.getline(item->callInfo.name, MAX_NAME_SIZE);
+            file >> item->callInfo.name;
             file >> item->callInfo.cost;
-            file.read(tmp_buffer, 1); // чтения лишнего символа пробела
+            file.read(tmp_buffer, 1);
             array[size++] = item;
         }
         file.close();
