@@ -3,6 +3,7 @@
 
 #include <cstring>
 #include <fstream>
+#include <stdio.h>
 
 
 //здесь есть проблема с 15й строкой. atoi сразу выбивает из программы, stoi относит к библиотеке.
@@ -44,7 +45,7 @@ void read(const char* file_name, phone_subscription* array[], int& size)
         {
             phone_subscription* item = new phone_subscription;
             file >> tmp_buffer;
-            item->number = atoi(tmp_buffer);
+            item->number = atoll(tmp_buffer);
             file >> tmp_buffer;
             item->startDate = convertDate(tmp_buffer);
             file >> tmp_buffer;

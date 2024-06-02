@@ -25,7 +25,7 @@ struct traffic
 
 struct phone_subscription
 {
-    int number;
+    long long int number;
     date startDate;
     Time startTime;
     Time duration;
