@@ -88,3 +88,7 @@ void quickSort(phone_subscription** numbers, int left, int right, bool (*compare
     if (right > index)
         quickSort(numbers, index + 1, right, compare);
 }
+
+int process() {
+    return 0;
+}
