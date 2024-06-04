@@ -89,16 +89,26 @@ void quickSort(phone_subscription* numbers[], int left, int right, bool (*compar
         quickSort(numbers, index + 1, right, compare);
 }
 
-int process(phone_subscription* array[], int size)
+double call_cost(phone_subscription* element) {
+    return element->callInfo.cost;
+}
+
+double process(phone_subscription* subscriptions[], int size)
 {
-    int max = 0;
-    for (int i = 1; i < size; i++)
-    {
-        int curr = 12;
-        if (curr > max)
-        {
-            max = curr;
-        }
+    double sum = 0;
+    double avg = 0;
+
+    for (int i = 0; i < size; i++) {
+        sum += phone_duration(subscriptions[i]) * call_cost(subscriptions[i]);
     }
-    return max;
+
+    int duration_sum = 0;
+
+    for (int i = 0; i < size; i++) {
+        duration_sum += phone_duration(subscriptions[i]);
+    }
+
+    avg = sum / duration_sum;
+
+    return avg;
 }
