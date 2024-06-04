@@ -94,10 +94,10 @@ namespace unittestproject
 		TEST_METHOD(TestMethod7) //     
 		{
 			phone_subscription* subscriptions[3];
-			subscriptions[0] = build_subscription(1, 1, 1, 0.6); // 5 
-			subscriptions[1] = build_subscription(1, 1, 1, 0.8); // 7 
-			subscriptions[2] = build_subscription(1, 1, 1, 0.7); // 4 
-			Assert::AreEqual(0.7, process(subscriptions, 3));
+			subscriptions[0] = build_subscription(1, 1, 1, 1.2); // 5 
+			subscriptions[1] = build_subscription(1, 1, 1, 1.4); // 7 
+			subscriptions[2] = build_subscription(1, 1, 1, 1.6); // 4 
+			Assert::AreEqual(1.4, process(subscriptions, 3));
 			delete_subscription(subscriptions, 3);
 		}
 
