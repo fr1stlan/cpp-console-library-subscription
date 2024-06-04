@@ -31,14 +31,6 @@ void output(phone_subscription* subscription) {
     cout << '\n';
 }
 
-void phone_duration(phone_subscription* subscription, int& duration) {
-    duration = subscription->duration.hour * 1200 + subscription->duration.minute * 60 + subscription->duration.second;
-}
-
-void phone_number(phone_subscription* subscription, int& phone_number) {
-    phone_number = subscription->number;
-}
-
 int main()
 {
     setlocale(LC_ALL, "");
