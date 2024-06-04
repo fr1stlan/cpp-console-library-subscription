@@ -5,7 +5,7 @@
 #include "phone_subscription.h"
 
 int phone_duration(phone_subscription* element) {
-    return (element->duration.hour * 1200 + element->duration.minute * 60 + element->duration.second);
+    return (element->duration.hour * 3600 + element->duration.minute * 60 + element->duration.second);
 }
 
 bool compare_conversation_by_duration(phone_subscription* a, phone_subscription* b) {
@@ -44,7 +44,7 @@ void heapify(phone_subscription* array[], int size, int index, bool (*compare)(p
     }
 }
 
-void heap_sort(phone_subscription** array, int size, bool (*compare)(phone_subscription*, phone_subscription*)) {
+void heap_sort(phone_subscription* array[], int size, bool (*compare)(phone_subscription*, phone_subscription*)) {
     for (int i = size / 2 - 1; i >= 0; --i)
         heapify(array, size, i, compare);
 
@@ -55,7 +55,7 @@ void heap_sort(phone_subscription** array, int size, bool (*compare)(phone_subsc
     }
 }
 
-void quickSort(phone_subscription** numbers, int left, int right, bool (*compare)(phone_subscription*, phone_subscription*))
+void quickSort(phone_subscription* numbers[], int left, int right, bool (*compare)(phone_subscription*, phone_subscription*))
 {
     phone_subscription* pivot; // разрешающий элемент
     int index; // индекс разрешающего элемента
@@ -64,14 +64,14 @@ void quickSort(phone_subscription** numbers, int left, int right, bool (*compare
     pivot = numbers[left]; // получаем значение разрешающего элемента
     while (left < right) // пока границы не сомкнутся
     {
-        while ((*compare)(numbers[right], pivot) && (left < right))
+        while (!compare(numbers[right], pivot) && (left < right))
             right--; // сдвигаем правую границу пока элемент [right] больше [pivot]
         if (left != right) // если границы не сомкнулись
         {
             numbers[left] = numbers[right]; // перемещаем указатель на элемент [right] на место разрешающего
             left++; // сдвигаем левую границу вправо
         }
-        while ((*compare)(numbers[left], pivot) < 0 && (left < right))
+        while (compare(numbers[left], pivot) && (left < right))
             left++; // сдвигаем левую границу пока элемент [left] меньше [pivot]
         if (left != right) // если границы не сомкнулись
         {

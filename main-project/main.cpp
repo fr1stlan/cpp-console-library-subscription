@@ -43,7 +43,7 @@ int main()
     try
     {
         read("data.txt", subscriptions, size);
-        
+
         bool (*compare_function)(phone_subscription*, phone_subscription*) = NULL;
 
         int item;
@@ -73,7 +73,7 @@ int main()
         switch (item)
         {
         case 1:
-            heap_sort(subscriptions, size, compare_function);
+            heap_sort(subscriptions, size - 1, compare_function);
             break;
         case 2:
             quickSort(subscriptions, 0, size - 1, compare_function);
@@ -93,7 +93,7 @@ int main()
         cout << "1)Check by traffic 'mobile'\n";
         cout << "2)Check by month '11'\n";
         cout << "\nEnter your variant: ";
-        int item;
+        item = 0;
         cin >> item;
         cout << '\n';
         switch (item)
