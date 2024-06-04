@@ -89,6 +89,16 @@ void quickSort(phone_subscription* numbers[], int left, int right, bool (*compar
         quickSort(numbers, index + 1, right, compare);
 }
 
-int process() {
-    return 0;
+int process(phone_subscription* array[], int size)
+{
+    int max = 0;
+    for (int i = 1; i < size; i++)
+    {
+        int curr = 12;
+        if (curr > max)
+        {
+            max = curr;
+        }
+    }
+    return max;
 }

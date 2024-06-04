@@ -19,6 +19,6 @@ void heap_sort(phone_subscription* array[], int size, bool (*compare)(phone_subs
 
 void quickSort(phone_subscription* numbers[], int left, int right, bool (*compare)(phone_subscription*, phone_subscription*));
 
-int process();
+int process(phone_subscription* array[], int size);
 
 #endif
